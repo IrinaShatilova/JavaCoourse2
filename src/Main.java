@@ -1,7 +1,7 @@
 public class Main {
     public static void main(String[] args) {
-        Car ladaGranta = new Car ("Lada","Granta",1.7,"yellow",2015,"Russia");
-        Car audiA8 = new Car ("Audi","A8",3.0,"black",2020,"Germany");
+        Car ladaGranta = new Car ("Lada","   ",1.7,"",0,"Russia");
+        Car audiA8 = new Car ("Audi","A8",0,"black",2020,"Germany");
         Car bmvZ8 = new Car ("BMV","Z8",3.0,"black",2021,"Germany");
         Car kiaSportage = new Car ("Kia","Sportage 4-го поколения",2.4,"red",2018,"South Korea");
         Car hyundaiAvante = new Car ("Hyundai","Avante",1.6,"orange",2016,"South Korea");
