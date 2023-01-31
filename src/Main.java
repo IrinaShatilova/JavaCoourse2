@@ -1,3 +1,4 @@
+import Transport.Bus;
 import Transport.Car;
 
 public class Main {
@@ -9,6 +10,7 @@ public class Main {
                 "",
                 0,
                 "Russia",
+                180,
                 "МКПП",
                 "седан",
                 "в555вв55",
@@ -23,6 +25,7 @@ public class Main {
                 "black",
                 2022,
                 "Germany",
+                0,
                 "АКПП",
                 "седан",
                 "",
@@ -37,6 +40,7 @@ public class Main {
                 "black",
                 2021,
                 "Germany",
+                200,
                 "АКПП",
                 "седан",
                 "",
@@ -51,6 +55,7 @@ public class Main {
                 "red",
                 2018,
                 "South Korea",
+                180,
                 "",
                 "седан",
                 "f222dd99",
@@ -65,6 +70,7 @@ public class Main {
                 "orange",
                 2016,
                 "South Korea",
+                250,
                 "АКПП",
                 " ",
                 "",
@@ -79,5 +85,29 @@ public class Main {
         System.out.println(hyundaiAvante);
         hyundaiAvante.changeTyres(12);
         System.out.println(hyundaiAvante);
+        Bus liaz5256 = new Bus(
+                "ЛиАЗ",
+                "5256",
+                2015,
+                "",
+                "Россия",
+                130);
+        Bus paz3205 = new Bus(
+                "ПАЗ",
+                "3205",
+                2010,
+                "",
+                "Россия",
+                0);
+        Bus volvo9500 = new Bus(
+                "Volvo",
+                "9500",
+                2021,
+                "black",
+                " ",
+                140);
+        System.out.println(liaz5256);
+        System.out.println(volvo9500);
+        System.out.println(paz3205);
     }
 }
