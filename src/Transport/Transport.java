@@ -1,79 +1,61 @@
 package Transport;
 
-public class Transport {
+public abstract class Transport<T extends Driver> implements Competing {
     private final String brand;
     private final String model;
-    private final int year;
-    private final String country;
-    private String color;
-    private int speedMax;
-
+    private double engineVolume;
+    private T driver;
     public Transport(String brand,
                      String model,
-                     int year,
-                     String color,
-                     String country,
-                     int speedMax) {
+                     double engineVolume,
+                     T driver) {
         this.brand = validateString(brand);
         this.model = validateString(model);
-        this.year = validateYear(year);
-        this.country = validateString(country);
-        setColor(color);
-        setSpeedMax(speedMax);
+        setEngineVolume(engineVolume);
+        setDriver(driver);
+
     }
 
     public String getBrand() {
         return brand;
     }
-
     public String getModel() {
         return model;
     }
-
-    public int getYear() {
-        return year;
+    public double getEngineVolume() {
+        return engineVolume;
+    }
+    public void setEngineVolume(double engineVolume) {
+        this.engineVolume = validateEngineVolume(engineVolume);
     }
 
-    public String getCountry() {
-        return country;
+    public T getDriver() {
+        return driver;
     }
 
-    public String getColor() {
-        return color;
+    public void setDriver(T driver) {
+        this.driver = driver;
     }
 
-    public void setColor(String color) {
-        this.color = validateColor(color);
+    public static String validateString (String zeroValue){
+        return (zeroValue == null || zeroValue.isBlank() || zeroValue.isEmpty()) ? "default" : zeroValue;
     }
-
-    public int getSpeedMax() {
-        return speedMax;
+    public static double validateEngineVolume (double zeroValue){
+        return zeroValue <= 0 ? 1.5 : zeroValue;
     }
-
-    public void setSpeedMax(int speedMax) {
-        this.speedMax = validateSpeedMax(speedMax);
-    }
+    public abstract void startMove ();
+    public abstract void finishMove ();
 
     @Override
     public String toString() {
         return "Автомобиль: марка - " + brand +
                 ", модель - " + model +
-                ", цвет кузова - " + color +
-                ", год выпуска = " + year +
-                ", страна сборки - " + country +
-                ", максимальная скорость - " + speedMax + " км/час";
+                ", объем двигателя - " + engineVolume +
+                " л";
 
     }
-    public static String validateString (String zeroValue){
-        return (zeroValue == null || zeroValue.isBlank() || zeroValue.isEmpty()) ? "default" : zeroValue;
-    }
-    public static int validateYear (int zeroValue){
-        return zeroValue <= 0 ? 2000 : zeroValue;
-    }
-    public static String validateColor (String zeroValue){
-        return (zeroValue == null || zeroValue.isBlank() || zeroValue.isEmpty()) ? "white" : zeroValue;
-    }
-    public static int validateSpeedMax (int zeroValue){
-        return zeroValue <=0 ? 140 : zeroValue;
-    }
 }
+
+
+
+
