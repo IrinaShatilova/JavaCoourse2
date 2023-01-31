@@ -1,3 +1,4 @@
+import Transport.Bus;
 import Transport.Car;
 
 public class Main {
@@ -84,5 +85,29 @@ public class Main {
         System.out.println(hyundaiAvante);
         hyundaiAvante.changeTyres(12);
         System.out.println(hyundaiAvante);
+        Bus liaz5256 = new Bus(
+                "ЛиАЗ",
+                "5256",
+                2015,
+                "",
+                "Россия",
+                130);
+        Bus paz3205 = new Bus(
+                "ПАЗ",
+                "3205",
+                2010,
+                "",
+                "Россия",
+                0);
+        Bus volvo9500 = new Bus(
+                "Volvo",
+                "9500",
+                2021,
+                "black",
+                " ",
+                140);
+        System.out.println(liaz5256);
+        System.out.println(volvo9500);
+        System.out.println(paz3205);
     }
 }
