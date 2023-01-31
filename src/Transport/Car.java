@@ -12,6 +12,28 @@ public class Car {
     private String registrationNumber;
     private final int capacity;
     private boolean summerTyres;
+    private Key key;
+
+    public static class Key{
+        private final boolean remoteRun;
+        private final boolean withoutKey;
+        public Key(boolean remoteRun, boolean withoutKey) {
+            this.remoteRun = remoteRun;
+            this.withoutKey = withoutKey;
+        }
+        public boolean isRemoteRun() {
+            return remoteRun;
+        }
+        public boolean isWithoutKey() {
+            return withoutKey;
+        }
+
+        @Override
+        public String toString() {
+            return (remoteRun?"удаленный запуск ДВС":"без удаленного запуска ДВС")
+             + ", " + (withoutKey? "бесключевой доступ":"бесключевой доступ отсутствует");
+        }
+    }
     public Car(String brand,
                String model,
                double engineVolume,
@@ -22,7 +44,8 @@ public class Car {
                String bodyType,
                String registrationNumber,
                int capacity,
-               boolean summerTyres) {
+               boolean summerTyres,
+               Key key)  {
         this.brand = validateString(brand);
         this.model = validateString(model);
         this.engineVolume = validateEngineVolume(engineVolume);
@@ -34,48 +57,39 @@ public class Car {
         this.registrationNumber = validateRegistrationNumber(registrationNumber);
         this.capacity = validateCapacity(capacity);
         this.summerTyres = summerTyres;
+        setKey(key);
     }
 
     public String getBrand() {
         return brand;
     }
-
     public String getModel() {
         return model;
     }
-
     public double getEngineVolume() {
         return engineVolume;
     }
-
     public void setEngineVolume(double engineVolume) {
         this.engineVolume = validateEngineVolume(engineVolume);
     }
-
     public String getColor() {
         return color;
     }
-
     public void setColor(String color) {
         this.color = validateColor(color);
     }
-
     public Integer getYear() {
         return year;
     }
-
     public String getCountry() {
         return country;
     }
-
     public String getTransmission() {
         return transmission;
     }
-
     public void setTransmission(String transmission) {
         this.transmission = validateTransmission(transmission);
     }
-
     public String getBodyType() {
         return bodyType;
     }
@@ -100,6 +114,17 @@ public class Car {
         this.summerTyres = summerTyres;
     }
 
+    public Key getKey() {
+        return key;
+    }
+
+    public void setKey(Key key) {
+        if (key ==null) {
+            key = new Key(false,false);
+        }
+        this.key = key;
+    }
+
     @Override
     public String toString() {
         return "Автомобиль: марка - " + brand +
@@ -112,7 +137,8 @@ public class Car {
                 ", тип кузова - " + bodyType +
                 ", регистрационный номер - " + registrationNumber +
                 ", количество мест - " + capacity +
-                ", " + (summerTyres?"летняя" : "зимняя") + " резина";
+                ", " + (summerTyres?"летняя" : "зимняя") + " резина" +
+                ", " + key;
 
     }
     public static String validateString (String zeroValue){

@@ -13,20 +13,23 @@ public class Main {
                 "седан",
                 "в555вв55",
                 5,
-                true
+                true,
+                new Car.Key(true,true)
         );
         Car audiA8 = new Car (
                 "Audi",
                 "A8",
                 0,
                 "black",
-                2020,
+                2022,
                 "Germany",
                 "АКПП",
                 "седан",
                 "",
                 7,
-                true);
+                true,
+                null
+        );
         Car bmvZ8 = new Car (
                 "BMV",
                 "Z8",
@@ -38,7 +41,9 @@ public class Main {
                 "седан",
                 "",
                 7,
-                false);
+                false,
+                new Car.Key(false,true)
+        );
         Car kiaSportage = new Car (
                 "Kia",
                 "Sportage 4-го поколения",
@@ -50,7 +55,9 @@ public class Main {
                 "седан",
                 "f222dd99",
                 7,
-                true);
+                true,
+                null
+        );
         Car hyundaiAvante = new Car (
                 "Hyundai",
                 "Avante",
@@ -62,7 +69,9 @@ public class Main {
                 " ",
                 "",
                 7,
-                true);
+                true,
+                new Car.Key(false,true)
+        );
         System.out.println(ladaGranta);
         System.out.println(audiA8);
         System.out.println(bmvZ8);
