@@ -1,12 +1,22 @@
 package Transport;
 
 public class Bus extends Transport<DriverD> {
+    private Size size;
+
     public Bus(
             String brand,
             String model,
             double engineVolume,
-            DriverD driver) {
+            DriverD driver,
+            Size size) {
         super(brand, model, engineVolume, driver);
+        this.size = size;
+    }
+    public Size getSize() {
+        return size;
+    }
+    public void setSize(Size size) {
+        this.size = size;
     }
 
     @Override
@@ -38,5 +48,13 @@ public class Bus extends Transport<DriverD> {
         int max=140;
         int maxSpeed = (int) (min+(max+min)*Math.random());
         System.out.println("Максимальная скорость автобуса " + maxSpeed + " км/час");
+    }
+    @Override
+    public void printType() {
+        if (getSize() == null) {
+            System.out.println("Данных по транспортному средству недостаточно");
+        }else {
+            System.out.println(getSize());
+        }
     }
 }
