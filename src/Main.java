@@ -41,6 +41,7 @@ public class Main {
         System.out.print(kiaSportage+ "  ");
         kiaSportage.printType();
 
+
         DriverD driverD1 = new DriverD("Алехин ВВ",true,10);
         Bus liaz5256 = new Bus(
                 "ЛиАЗ",
@@ -112,7 +113,11 @@ public class Main {
         printInfo(truck1);
         printInfo(truck2);
         printInfo(truck3);
-    }
+        truck1.passDiagnostics();
+        kiaSportage.passDiagnostics();
+        volvo0000.passDiagnostics();
+
+}
 
     public static void printInfo(Transport<?> transport){
         System.out.println("Водитель " + transport.getDriver().getName()

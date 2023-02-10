@@ -57,4 +57,8 @@ public class Bus extends Transport<DriverD> {
             System.out.println(getSize());
         }
     }
+    @Override
+    public void passDiagnostics(){
+        throw new TransportTypeException("Автобусы не должны проходить диагностику");
+    }
 }

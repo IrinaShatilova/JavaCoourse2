@@ -9,7 +9,7 @@ public class Car extends Transport<DriverB> {
             double engineVolume,
             DriverB driver,
             BodyType bodyType
-            ) {
+    ) {
         super(brand, model, engineVolume, driver);
         this.bodyType = bodyType;
 
@@ -25,13 +25,14 @@ public class Car extends Transport<DriverB> {
 
     @Override
     public void startMove() {
-        System.out.println("Автомобиль марки " +getBrand() + "начал движение");
+        System.out.println("Автомобиль марки " + getBrand() + "начал движение");
     }
 
     @Override
     public void finishMove() {
-        System.out.println("Автомобиль марки " +getBrand() + "закончил движение");
+        System.out.println("Автомобиль марки " + getBrand() + "закончил движение");
     }
+
     @Override
     public void pitStop() {
         System.out.println("Пит-стоп автомобиля");
@@ -39,16 +40,17 @@ public class Car extends Transport<DriverB> {
 
     @Override
     public void bestLapTime() {
-        int min= 80;
-        int max= 120;
-        int maxLapTime = (int) (min+(max+min)*Math.random());
-        System.out.println("Лучшее время прохождения круга автомобиля " + maxLapTime+ " мин");
+        int min = 80;
+        int max = 120;
+        int maxLapTime = (int) (min + (max + min) * Math.random());
+        System.out.println("Лучшее время прохождения круга автомобиля " + maxLapTime + " мин");
     }
+
     @Override
     public void maxSpeed() {
-        int min=120;
-        int max=200;
-        int maxSpeed = (int) (min+(max+min)*Math.random());
+        int min = 120;
+        int max = 200;
+        int maxSpeed = (int) (min + (max + min) * Math.random());
         System.out.println("Максимальная скорость автомобиля " + maxSpeed + " км/час");
     }
 
@@ -56,8 +58,16 @@ public class Car extends Transport<DriverB> {
     public void printType() {
         if (getBodyType() == null) {
             System.out.println("Данных по транспортному средству недостаточно");
-        }else {
+        } else {
             System.out.println(getBodyType());
         }
     }
+
+    @Override
+    public void passDiagnostics() {
+        System.out.println("Автомобиль прошел диагностику");
+    }
+
+
+
 }
