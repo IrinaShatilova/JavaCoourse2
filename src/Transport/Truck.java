@@ -59,5 +59,9 @@ public class Truck extends Transport<DriverC>{
             System.out.println(getLoadCapaciti());
         }
     }
+    @Override
+    public void passDiagnostics() {
+        System.out.println("Грузовик прошел диагностику");
+    }
 
 }
