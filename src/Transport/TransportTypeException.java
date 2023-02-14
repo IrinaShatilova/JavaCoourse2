@@ -1,9 +1,14 @@
 package Transport;
 
-public class TransportTypeException extends RuntimeException {
-    public TransportTypeException(){
+import java.io.IOException;
+
+public class TransportTypeException extends IOException {
+
+    public TransportTypeException() {
+        super();
     }
-    public TransportTypeException(String message){
+    public TransportTypeException(String message) {
         super(message);
     }
+
 }

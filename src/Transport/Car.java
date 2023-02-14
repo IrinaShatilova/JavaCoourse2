@@ -1,5 +1,8 @@
 package Transport;
 
+
+import java.util.List;
+
 public class Car extends Transport<DriverB> {
     private BodyType bodyType;
 
@@ -8,9 +11,10 @@ public class Car extends Transport<DriverB> {
             String model,
             double engineVolume,
             DriverB driver,
+            List<Mechanic> mechanicList,
             BodyType bodyType
     ) {
-        super(brand, model, engineVolume, driver);
+        super(brand, model, engineVolume, driver, mechanicList);
         this.bodyType = bodyType;
 
     }
@@ -65,9 +69,7 @@ public class Car extends Transport<DriverB> {
 
     @Override
     public void passDiagnostics() {
-        System.out.println("Автомобиль прошел диагностику");
+        System.out.println(getBrand() + " - автомобиль прошел диагностику");
     }
-
-
 
 }

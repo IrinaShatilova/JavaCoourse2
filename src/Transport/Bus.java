@@ -1,5 +1,7 @@
 package Transport;
 
+import java.util.List;
+
 public class Bus extends Transport<DriverD> {
     private Size size;
 
@@ -8,9 +10,11 @@ public class Bus extends Transport<DriverD> {
             String model,
             double engineVolume,
             DriverD driver,
+            List<Mechanic> mechanicList,
             Size size) {
-        super(brand, model, engineVolume, driver);
+        super(brand, model, engineVolume, driver, mechanicList);
         this.size = size;
+
     }
     public Size getSize() {
         return size;
@@ -57,8 +61,10 @@ public class Bus extends Transport<DriverD> {
             System.out.println(getSize());
         }
     }
+
     @Override
-    public void passDiagnostics(){
-        throw new TransportTypeException("Автобусы не должны проходить диагностику");
+    public void passDiagnostics() throws TransportTypeException {
+        throw new TransportTypeException("Автобусы диагностику не проходят");
+
     }
 }
