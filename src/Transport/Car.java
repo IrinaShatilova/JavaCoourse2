@@ -72,4 +72,5 @@ public class Car extends Transport<DriverB> {
         System.out.println(getBrand() + " - автомобиль прошел диагностику");
     }
 
+
 }

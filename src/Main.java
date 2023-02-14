@@ -1,9 +1,6 @@
 import Transport.*;
 
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -25,7 +22,7 @@ public class Main {
                 "Audi",
                 "A8",
                 0,
-                driverB2,List.of(mechanicOleg),BodyType.SEDAN
+                driverB2,List.of(mechanicVasya),BodyType.SEDAN
         );
 
         System.out.print(ladaGranta + "  ");
@@ -98,6 +95,14 @@ public class Main {
         printInfo(truck1);
         printInfo(truck2);
 
+        Map<Transport, List<Mechanic>> myMap = new HashMap<>();
+        myMap.put(ladaGranta,ladaGranta.getMechanicList());
+        myMap.put(paz3205,paz3205.getMechanicList());
+        myMap.put(truck2,truck2.getMechanicList());
+        myMap.put(audiA8,audiA8.getMechanicList());
+        for (Map.Entry<Transport,List<Mechanic>> t: myMap.entrySet()){
+            System.out.println("Ключ: " + t.getKey() + " Значение: " + t.getValue());
+        }
 }
     public static void printInfo(Transport<?> transport){
         System.out.println("Водитель " + transport.getDriver().getName()
