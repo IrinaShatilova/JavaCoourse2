@@ -1,5 +1,7 @@
 package Transport;
 
+import java.util.List;
+
 public class Truck extends Transport<DriverC>{
     private LoadCapacity loadCapaciti;
     public Truck(
@@ -7,8 +9,9 @@ public class Truck extends Transport<DriverC>{
             String model,
             double engineVolume,
             DriverC driver,
+            List<Mechanic> mechanicList,
             LoadCapacity loadCapaciti) {
-        super(brand, model, engineVolume, driver);
+        super(brand, model, engineVolume, driver, mechanicList);
         this.loadCapaciti=loadCapaciti;
     }
 
@@ -61,7 +64,7 @@ public class Truck extends Transport<DriverC>{
     }
     @Override
     public void passDiagnostics() {
-        System.out.println("Грузовик прошел диагностику");
+        System.out.println(getBrand() + " - грузовик прошел диагностику");
     }
 
 }
