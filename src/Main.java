@@ -103,11 +103,24 @@ public class Main {
         for (Map.Entry<Transport,List<Mechanic>> t: myMap.entrySet()){
             System.out.println("Ключ: " + t.getKey() + " Значение: " + t.getValue());
         }
-}
+        Set<Driver> myDriver = new HashSet<>();
+        myDriver.add(driverB1);
+        myDriver.add(driverB1);
+        myDriver.add(driverC1);
+        myDriver.add(driverD1);
+        myDriver.add(driverD1);
+
+       Iterator<Driver> iterator = myDriver.iterator();
+       while (iterator.hasNext()) {
+          Driver driver = iterator.next();
+          System.out.println(driver);
+      }
+    }
     public static void printInfo(Transport<?> transport){
         System.out.println("Водитель " + transport.getDriver().getName()
                 + " управляет автомобилем " + transport.getBrand() + transport.getModel()
                 + " и будет участвовать в заезде" + ", закрепленный(ые) механик(и)-" + transport.getMechanicList());
     }
+
 
 }
